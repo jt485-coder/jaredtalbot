@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jared Talbot | Systems Dashboard</title>
+  <title>Jared Talbot | Bitcoin, Tech & Simple Systems</title>
   <meta
     name="description"
     content="Jared Talbot builds simple systems that solve real-world problems — from Bitcoin education to practical tech support and digital strategy."
@@ -14,13 +14,14 @@
       --bg-2: #11161d;
       --surface: rgba(255, 255, 255, 0.05);
       --surface-2: rgba(255, 255, 255, 0.07);
-      --surface-3: rgba(255, 255, 255, 0.09);
+      --surface-3: rgba(255, 255, 255, 0.1);
       --text: #f4f7fb;
       --muted: #b2bfce;
       --line: rgba(255, 255, 255, 0.1);
       --orange: #ff6a00;
       --orange-2: #ff8b3d;
       --cyan: #4cc9f0;
+      --green: #7bd88f;
       --shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
       --radius: 24px;
       --max: 1180px;
@@ -120,6 +121,13 @@
       flex-shrink: 0;
     }
 
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .top-email {
       display: inline-flex;
       align-items: center;
@@ -151,9 +159,9 @@
 
     .hero-card,
     .panel,
-    .project-card,
-    .contact-card,
-    .service-card {
+    .route-card,
+    .trust-card,
+    .contact-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -182,7 +190,7 @@
       font-size: clamp(2.7rem, 6vw, 5.1rem);
       line-height: 0.98;
       letter-spacing: -0.06em;
-      max-width: 12ch;
+      max-width: 11.5ch;
     }
 
     .hero-subline {
@@ -190,6 +198,7 @@
       font-size: 1.08rem;
       font-weight: 700;
       color: var(--text);
+      max-width: 42ch;
     }
 
     .hero-copy {
@@ -204,6 +213,23 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 26px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-trust span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.78);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
 
     .btn {
@@ -309,58 +335,24 @@
       text-align: right;
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .service-card {
-      padding: 24px;
-    }
-
-    .service-card h4 {
-      margin: 14px 0 10px;
-      font-size: 1.4rem;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .service-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--line);
-      font-size: 1.25rem;
-    }
-
-    .projects {
+    .routes {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
     }
 
-    .project-card {
-      padding: 26px;
+    .route-card {
+      padding: 28px;
       transition: 0.22s ease;
     }
 
-    .project-card:hover {
+    .route-card:hover {
       transform: translateY(-3px);
       border-color: rgba(255,255,255,0.18);
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.045));
     }
 
-    .project-badge {
+    .route-badge {
       display: inline-flex;
       padding: 7px 12px;
       border-radius: 999px;
@@ -373,25 +365,92 @@
       text-transform: uppercase;
     }
 
-    .project-card h4 {
+    .route-card h4 {
       margin: 18px 0 10px;
-      font-size: 1.9rem;
+      font-size: 2rem;
       line-height: 1.05;
       letter-spacing: -0.04em;
     }
 
-    .project-card p {
+    .route-card p {
       margin: 0;
       color: var(--muted);
     }
 
-    .project-cta {
+    .route-list {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .route-list li {
+      margin-bottom: 8px;
+    }
+
+    .route-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .mini-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 22px;
-      color: #ffbf92;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 999px;
       font-weight: 700;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      transition: 0.2s ease;
+      font-size: 0.92rem;
+    }
+
+    .mini-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .mini-btn.primary {
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      border-color: transparent;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .trust-card {
+      padding: 24px;
+    }
+
+    .trust-card h4 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .trust-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .trust-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+      font-size: 1.2rem;
+      margin-bottom: 14px;
     }
 
     .contact-card {
@@ -452,8 +511,8 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .projects,
-      .services,
+      .routes,
+      .trust-grid,
       .contact-card {
         grid-template-columns: 1fr;
       }
@@ -477,8 +536,8 @@
 
       .hero-card,
       .panel,
-      .project-card,
-      .service-card,
+      .route-card,
+      .trust-card,
       .contact-card {
         padding: 22px;
       }
@@ -487,12 +546,14 @@
         max-width: none;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .route-actions {
         flex-direction: column;
         align-items: stretch;
       }
 
       .btn,
+      .mini-btn,
       .top-email {
         width: 100%;
         text-align: center;
@@ -516,7 +577,9 @@
           <span class="brand-dot"></span>
           <span>Jared Talbot</span>
         </div>
-        <a class="top-email" href="mailto:hello@jaredtalbot.com">hello@jaredtalbot.com</a>
+        <div class="top-actions">
+          <a class="top-email" href="mailto:hello@jaredtalbot.com">hello@jaredtalbot.com</a>
+        </div>
       </div>
     </header>
 
@@ -531,18 +594,24 @@
             </div>
             <p class="hero-copy">
               This is my digital hub — connecting the projects I’m building across Bitcoin,
-              practical tech support, and system thinking. The goal is always the same:
-              reduce confusion, increase control, and create momentum.
+              practical tech support, and system thinking. If you’re here, the goal is simple:
+              choose the right path and move forward.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects">Explore My Work</a>
+              <a class="btn btn-primary" href="#routes">Choose Your Path</a>
               <a class="btn btn-secondary" href="mailto:hello@jaredtalbot.com">Get in Touch</a>
+            </div>
+
+            <div class="hero-trust">
+              <span>Built independently</span>
+              <span>No noise</span>
+              <span>Real solutions</span>
             </div>
           </div>
 
           <aside class="panel">
-            <p class="panel-label">Philosophy</p>
+            <p class="panel-label">How I Work</p>
             <h2>Clear thinking beats complexity.</h2>
             <p>
               I focus on building systems that are simple, effective, and built to last.
@@ -559,78 +628,91 @@
         </div>
       </section>
 
-      <section class="section">
+      <section id="routes" class="section">
         <div class="section-head">
           <div>
-            <p>What I Do</p>
-            <h3>Three focused pillars</h3>
+            <p>Choose Your Path</p>
+            <h3>Two focused ways I can help</h3>
           </div>
           <p class="section-note">
-            Practical work built around clarity, trust, and solving real problems.
+            If you’re here for Bitcoin, go that way. If you need practical tech help, go that way.
           </p>
         </div>
 
-        <div class="services">
-          <div class="service-card">
-            <div class="service-icon">₿</div>
-            <h4>Bitcoin Guidance</h4>
-            <p>
-              Helping people understand, secure, and grow their Bitcoin with clear education
-              and practical guidance.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">⌘</div>
-            <h4>Tech & Problem Solving</h4>
-            <p>
-              Real-world help with devices, systems, websites, troubleshooting, and practical
-              digital setup.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">◌</div>
-            <h4>Systems & Strategy</h4>
-            <p>
-              Simplifying digital complexity and helping people structure their tools,
-              workflows, and direction.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="section-head">
-          <div>
-            <p>Projects</p>
-            <h3>Active projects</h3>
-          </div>
-          <p class="section-note">
-            A small ecosystem of focused brands, each built for a different job.
-          </p>
-        </div>
-
-        <div class="projects">
-          <a class="project-card" href="https://jaredfixes.com">
-            <span class="project-badge">Local Tech Support</span>
-            <h4>Jared Fixes</h4>
-            <p>
-              Local tech help in Wexford, plus practical remote support. From device setup and
-              troubleshooting to security basics and simple AI tools.
-            </p>
-            <span class="project-cta">Visit Jared Fixes →</span>
-          </a>
-
-          <a class="project-card" href="https://growyourbtc.com">
-            <span class="project-badge">Bitcoin Education</span>
+        <div class="routes">
+          <div class="route-card">
+            <span class="route-badge">Bitcoin Education</span>
             <h4>Grow Your BTC</h4>
             <p>
               Bitcoin education and guidance for people who want to secure, understand, and grow
               their BTC the right way.
             </p>
-            <span class="project-cta">Visit Grow Your BTC →</span>
-          </a>
+            <ul class="route-list">
+              <li>Bitcoin basics and long-term thinking</li>
+              <li>Security, self-custody, and setup guidance</li>
+              <li>Practical support for building conviction</li>
+            </ul>
+            <div class="route-actions">
+              <a class="mini-btn primary" href="https://growyourbtc.com">Visit Grow Your BTC</a>
+              <a class="mini-btn" href="mailto:btc@jaredtalbot.com">Email BTC</a>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <span class="route-badge">Local Tech Support</span>
+            <h4>Jared Fixes</h4>
+            <p>
+              Simple, reliable help for everyday tech problems — local support in Wexford plus
+              practical remote help where it makes sense.
+            </p>
+            <ul class="route-list">
+              <li>Device setup, troubleshooting, and tech clean-up</li>
+              <li>Practical support for security and digital basics</li>
+              <li>Simple AI help and clear problem-solving</li>
+            </ul>
+            <div class="route-actions">
+              <a class="mini-btn primary" href="https://jaredfixes.com">Visit Jared Fixes</a>
+              <a class="mini-btn" href="mailto:fix@jaredtalbot.com">Email Fix</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p>Trust</p>
+            <h3>What you can expect</h3>
+          </div>
+          <p class="section-note">
+            A simple approach focused on clarity, usefulness, and real outcomes.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-icon">⌁</div>
+            <h4>Clear communication</h4>
+            <p>
+              I prefer plain English, direct thinking, and practical next steps over jargon or unnecessary complexity.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">⚙</div>
+            <h4>Real-world solutions</h4>
+            <p>
+              The focus is not theory for its own sake. It’s about solving actual problems and building useful systems.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">↗</div>
+            <h4>Independent thinking</h4>
+            <p>
+              I build independently, learn by doing, and care about systems that are trustworthy, resilient, and simple.
+            </p>
+          </div>
         </div>
       </section>
 
