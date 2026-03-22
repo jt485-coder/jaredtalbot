@@ -6,7 +6,7 @@
   <title>Jared Talbot | Systems Dashboard</title>
   <meta
     name="description"
-    content="Bitcoin, tech, and simple systems that actually help people. Explore Jared Fixes and Grow Your BTC from Jared Talbot’s digital hub."
+    content="Jared Talbot builds simple systems that solve real-world problems — from Bitcoin education to practical tech support and digital strategy."
   />
   <style>
     :root {
@@ -14,6 +14,7 @@
       --bg-2: #11161d;
       --surface: rgba(255, 255, 255, 0.05);
       --surface-2: rgba(255, 255, 255, 0.07);
+      --surface-3: rgba(255, 255, 255, 0.09);
       --text: #f4f7fb;
       --muted: #b2bfce;
       --line: rgba(255, 255, 255, 0.1);
@@ -138,7 +139,7 @@
     }
 
     .hero {
-      padding: 68px 0 36px;
+      padding: 70px 0 36px;
     }
 
     .hero-grid {
@@ -151,7 +152,8 @@
     .hero-card,
     .panel,
     .project-card,
-    .contact-card {
+    .contact-card,
+    .service-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -273,7 +275,7 @@
     }
 
     .section {
-      padding: 28px 0 60px;
+      padding: 28px 0 64px;
     }
 
     .section-head {
@@ -300,11 +302,45 @@
     }
 
     .section-note {
-      max-width: 380px;
+      max-width: 420px;
       margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
       text-align: right;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 24px;
+    }
+
+    .service-card h4 {
+      margin: 14px 0 10px;
+      font-size: 1.4rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+      font-size: 1.25rem;
     }
 
     .projects {
@@ -417,6 +453,7 @@
     @media (max-width: 980px) {
       .hero-grid,
       .projects,
+      .services,
       .contact-card {
         grid-template-columns: 1fr;
       }
@@ -441,6 +478,7 @@
       .hero-card,
       .panel,
       .project-card,
+      .service-card,
       .contact-card {
         padding: 22px;
       }
@@ -487,14 +525,14 @@
         <div class="hero-grid">
           <div class="hero-card">
             <div class="eyebrow">Bitcoin • Tech • Practical Systems</div>
-            <h1>Bitcoin. Tech. Simple systems that actually help people.</h1>
+            <h1>I build simple systems that solve real-world problems.</h1>
             <div class="hero-subline">
-              A personal dashboard connecting the work I’m building.
+              From Bitcoin education to hands-on technical support, I help people move forward with clarity.
             </div>
             <p class="hero-copy">
-              I build practical digital systems focused on Bitcoin education, local tech support,
-              and clear problem-solving. My work is designed to reduce confusion, increase control,
-              and help real people move forward with confidence.
+              This is my digital hub — connecting the projects I’m building across Bitcoin,
+              practical tech support, and system thinking. The goal is always the same:
+              reduce confusion, increase control, and create momentum.
             </p>
 
             <div class="hero-actions">
@@ -521,11 +559,52 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p>What I Do</p>
+            <h3>Three focused pillars</h3>
+          </div>
+          <p class="section-note">
+            Practical work built around clarity, trust, and solving real problems.
+          </p>
+        </div>
+
+        <div class="services">
+          <div class="service-card">
+            <div class="service-icon">₿</div>
+            <h4>Bitcoin Guidance</h4>
+            <p>
+              Helping people understand, secure, and grow their Bitcoin with clear education
+              and practical guidance.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">⌘</div>
+            <h4>Tech & Problem Solving</h4>
+            <p>
+              Real-world help with devices, systems, websites, troubleshooting, and practical
+              digital setup.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">◌</div>
+            <h4>Systems & Strategy</h4>
+            <p>
+              Simplifying digital complexity and helping people structure their tools,
+              workflows, and direction.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="projects" class="section">
         <div class="section-head">
           <div>
             <p>Projects</p>
-            <h3>What I’m building</h3>
+            <h3>Active projects</h3>
           </div>
           <p class="section-note">
             A small ecosystem of focused brands, each built for a different job.
@@ -559,10 +638,10 @@
         <div class="contact-card">
           <div>
             <p class="panel-label">Contact</p>
-            <h3>Get in touch</h3>
+            <h3>Let’s work together</h3>
             <p>
-              For support, collaboration, or questions, reach out directly. The system is simple:
-              one identity hub, focused business fronts, and clear paths for people who need help.
+              If you need help with Bitcoin, tech, or building simple systems that actually work,
+              reach out directly. I prefer clear communication and practical next steps.
             </p>
           </div>
 
@@ -578,7 +657,7 @@
     <footer>
       <div class="container footer-inner">
         <span>© 2026 Jared Talbot</span>
-        <span>Built for clarity, trust, and leverage.</span>
+        <span>Built independently. No noise. Just real solutions.</span>
       </div>
     </footer>
   </div>
