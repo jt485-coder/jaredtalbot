@@ -1,0 +1,72 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 5 (Jewel & Luxury) + Archetype 4 (Swiss / Control Center)",
+  "vibe": "premium, glassy, modern, independent, minimal, dark, orange accent",
+  "colors": {
+    "background": "#050505",
+    "surface": "rgba(255, 255, 255, 0.03)",
+    "surface_hover": "rgba(255, 255, 255, 0.06)",
+    "primary_accent": "#ea580c",
+    "secondary_accent": "#f97316",
+    "text_primary": "#ffffff",
+    "text_secondary": "#a3a3a3",
+    "border": "rgba(255, 255, 255, 0.1)"
+  },
+  "typography": {
+    "headings": "Cabinet Grotesk",
+    "body": "Manrope",
+    "mono_accent": "JetBrains Mono",
+    "hierarchy": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl tracking-tighter font-medium",
+      "h2": "text-2xl md:text-3xl lg:text-4xl tracking-tight font-medium",
+      "h3": "text-xl md:text-2xl font-medium",
+      "body": "text-base md:text-lg leading-relaxed text-neutral-400",
+      "overline": "text-xs tracking-[0.2em] uppercase font-mono text-orange-500/80"
+    }
+  },
+  "layout": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grid": "grid grid-cols-1 md:grid-cols-12 gap-6",
+    "bento_primary": "col-span-1 md:col-span-8 row-span-2",
+    "bento_secondary": "col-span-1 md:col-span-4 row-span-1",
+    "bento_tertiary": "col-span-1 md:col-span-4 row-span-1"
+  },
+  "surfaces": {
+    "card_default": "bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition-all duration-300",
+    "card_hover": "hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(234,88,12,0.15)]",
+    "glass_header": "fixed top-0 w-full bg-[#050505]/60 backdrop-blur-2xl border-b border-white/10 z-50",
+    "input_field": "bg-black/50 border border-white/10 rounded-lg p-4 text-white focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all"
+  },
+  "components_strategy": {
+    "navigation": "Sticky glassy top nav. Logo/Name left. 3-4 nav links right. No social icons. Minimal optical alignment.",
+    "hero": "Focus on high-contrast text. No heavy illustrations. Subtle orange background glow behind the text using radial-gradient (opacity 10-20%).",
+    "route_cards": "Bento grid 'Control Room' layout. Jared Fixes is the largest card (Primary). GrowYourBTC is medium (Secondary). Simple Systems is small (Tertiary). Use 'Tracing Beam' or subtle neon borders on the primary card.",
+    "how_i_work": "List format or vertical steps, generous spacing (gap-12). Left-aligned text.",
+    "contact_form": "Dark inputs. Explicit honeypot field (hidden via CSS `hidden` class) to trap bots. No raw email addresses.",
+    "footer": "Very minimal. Copyright, maybe a small brand mark. Huge padding (py-24)."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1767161642116-a3cb82c1a4ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwzfHxkYXJrJTIwYWJzdHJhY3QlMjBvcmFuZ2UlMjB0ZXh0dXJlfGVufDB8fHx8MTc3NTIzMjU4Nnww&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Abstract orange and black gradient background for subtle hero texture (use with low opacity overlay)"
+      },
+      {
+        "url": "https://images.pexels.com/photos/29708309/pexels-photo-29708309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "texture",
+        "description": "Dark abstract 3D rendering of smooth waves for card backgrounds (use in tertiary or secondary cards)"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install fonts via Google Fonts: Cabinet Grotesk (or use Space Grotesk/Outfit if Cabinet is unavailable), Manrope, JetBrains Mono.",
+    "Use lucide-react for icons. Keep icons thin (strokeWidth 1.5) to match the premium feel.",
+    "Build the primary Jared Fixes card with a subtle glowing orange border on hover to signify it as the main route.",
+    "Implement the contact form using native HTML inputs styled with tailwind or shadcn. IMPORTANT: include a honeypot field (e.g., `<input type='text' name='website_url_trap' className='hidden' tabIndex={-1} autoComplete='off' />`). Do NOT expose email addresses.",
+    "Do not include any social media icons anywhere on the page.",
+    "Ensure all interactive elements have data-testid attributes (e.g., data-testid='contact-submit-button').",
+    "Use generous padding on sections (py-24 or py-32) to let the design breathe.",
+    "Use framer-motion for subtle fade-in and slide-up animations on load."
+  ]
+}
