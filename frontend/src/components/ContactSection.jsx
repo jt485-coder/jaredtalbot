@@ -7,40 +7,60 @@ const ContactSection = () => {
     name: '',
     email: '',
     message: '',
-    website_url_trap: '', // Honeypot field
   });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Honeypot check - if filled, it's likely a bot
-    if (formData.website_url_trap) {
-      return;
+    setIsSubmitting(true);
+
+    // Encode form data for Netlify Forms (URL-encoded format)
+    const encode = (data) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+    };
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          ...formData,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: 'Message received. Jared will be in touch soon.'
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+      // Clear status after 5 seconds
+      setTimeout(() => setStatus({ type: '', message: '' }), 5000);
     }
-
-    // For now, just show a success message (frontend only)
-    // Ready for Netlify Forms integration later
-    setStatus({
-      type: 'success',
-      message: 'Message received. Jared will be in touch soon.'
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-      website_url_trap: '',
-    });
-
-    // Clear status after 5 seconds
-    setTimeout(() => setStatus({ type: '', message: '' }), 5000);
   };
 
   return (
@@ -86,32 +106,25 @@ const ContactSection = () => {
 
             {/* Right - Form */}
             <div>
-              {/* 
-                Form is ready for Netlify Forms integration:
-                - Add name="contact" attribute to form
-                - Add data-netlify="true" attribute
-                - Add netlify-honeypot="website_url_trap" attribute
-              */}
               <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-6"
                 data-testid="contact-form"
-                // For Netlify Forms (uncomment when deploying):
-                // name="contact"
-                // data-netlify="true"
-                // netlify-honeypot="website_url_trap"
               >
+                {/* Hidden input for Netlify form name */}
+                <input type="hidden" name="form-name" value="contact" />
+                
                 {/* Honeypot field - hidden from users, catches bots */}
-                <input
-                  type="text"
-                  name="website_url_trap"
-                  value={formData.website_url_trap}
-                  onChange={handleChange}
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: 
+                    <input name="bot-field" />
+                  </label>
+                </p>
 
                 {/* Name */}
                 <div>
@@ -189,10 +202,11 @@ const ContactSection = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold shadow-[0_10px_30px_rgba(234,88,12,0.2)] hover:shadow-[0_14px_40px_rgba(234,88,12,0.3)] hover:-translate-y-0.5 transition-all duration-300"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold shadow-[0_10px_30px_rgba(234,88,12,0.2)] hover:shadow-[0_14px_40px_rgba(234,88,12,0.3)] hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   data-testid="contact-submit-button"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send size={18} strokeWidth={2} />
                 </button>
               </form>

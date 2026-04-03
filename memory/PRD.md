@@ -59,7 +59,7 @@ Rebuild jaredtalbot.com as a polished React-based landing page, replacing the cu
 ### P1 (High Priority)
 - [ ] Custom favicon matching brand
 - [ ] Add OG image for social sharing
-- [ ] Enable Netlify Forms (add form attributes)
+- [x] Enable Netlify Forms (completed April 2026)
 
 ### P2 (Medium Priority)
 - [ ] Add page load animation
