@@ -15,7 +15,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Routes', href: '#routes' },
+    { label: 'My Work', href: '#work' },
     { label: 'Approach', href: '#approach' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -53,7 +53,7 @@ const Navigation = () => {
                 key={link.label}
                 href={link.href}
                 className="text-neutral-400 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
-                data-testid={`nav-${link.label.toLowerCase()}`}
+                data-testid={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {link.label}
               </a>

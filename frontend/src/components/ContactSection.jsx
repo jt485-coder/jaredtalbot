@@ -86,20 +86,28 @@ const ContactSection = () => {
               <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">
                 Let's work together
               </h2>
+              <p className="text-neutral-400 leading-relaxed mb-6 max-w-lg">
+                Have a project in mind, an opportunity to discuss or something useful we could 
+                build together? Send me a message.
+              </p>
               <p className="text-neutral-400 leading-relaxed mb-8 max-w-lg">
-                If you need help with Bitcoin, tech, or building simple systems that actually work, 
-                reach out directly. I prefer clear communication and practical next steps.
+                For website services, prices and everyday tech help, visit{' '}
+                <a 
+                  href="https://www.jaredfixes.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-orange-400 hover:text-orange-300 underline underline-offset-4 decoration-orange-500/40 hover:decoration-orange-400 transition-colors"
+                  data-testid="contact-jaredfixes-link"
+                >
+                  JaredFixes
+                </a>.
               </p>
 
               {/* Quick Info */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-neutral-300">
-                  <div className="w-2 h-2 rounded-full bg-green-500" />
-                  <span>Usually responds within 24 hours</span>
-                </div>
-                <div className="flex items-center gap-3 text-neutral-300">
                   <div className="w-2 h-2 rounded-full bg-orange-500" />
-                  <span>Based in Wexford, Ireland</span>
+                  <span>Based in Oylegate, Co. Wexford, Ireland</span>
                 </div>
               </div>
             </div>

@@ -24,7 +24,7 @@ const Hero = () => {
               >
                 <Zap size={14} className="text-orange-400" strokeWidth={2} />
                 <span className="text-orange-200/90 text-xs tracking-[0.2em] uppercase font-mono font-medium">
-                  Systems • Tech • Bitcoin
+                  Websites • Digital Projects • Practical Tech
                 </span>
               </div>
 
@@ -33,8 +33,7 @@ const Hero = () => {
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.04em] leading-[0.95] text-white mb-6"
                 data-testid="hero-headline"
               >
-                Simple systems.<br />
-                <span className="text-neutral-400">Real solutions.</span>
+                Hi, I'm <span className="text-neutral-400">Jared.</span>
               </h1>
 
               {/* Subheadline */}
@@ -42,19 +41,19 @@ const Hero = () => {
                 className="text-lg md:text-xl text-neutral-400 leading-relaxed max-w-xl mb-8"
                 data-testid="hero-subheadline"
               >
-                I build practical tools and offer clear guidance across tech support, 
-                Bitcoin education, and digital infrastructure. This is the central hub 
-                — choose your path.
+                I build websites, organise digital projects and help make technology easier to use. 
+                Based in Oylegate, Co. Wexford, I enjoy turning complicated ideas into something 
+                clear, practical and useful.
               </p>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <a
-                  href="#routes"
+                  href="#work"
                   className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold shadow-[0_14px_40px_rgba(234,88,12,0.25)] hover:shadow-[0_18px_50px_rgba(234,88,12,0.35)] hover:-translate-y-0.5 transition-all duration-300"
                   data-testid="hero-cta-primary"
                 >
-                  Choose Your Route
+                  Explore My Work
                   <ArrowDown size={18} strokeWidth={2} />
                 </a>
                 <a
@@ -62,7 +61,7 @@ const Hero = () => {
                   className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                   data-testid="hero-cta-secondary"
                 >
-                  Request Help
+                  Get in Touch
                 </a>
               </div>
 
@@ -98,16 +97,16 @@ const Hero = () => {
                 Clear thinking beats complexity.
               </h2>
               <p className="text-neutral-400 leading-relaxed mb-8">
-                I focus on building systems that are simple, effective, and built to last.
-                The goal is always the same: remove confusion, increase control, create momentum.
+                I focus on building things that are simple, effective, and built to last.
+                The goal is always the same: remove confusion, make things easier, create momentum.
               </p>
 
               <div className="space-y-3">
                 {[
                   'Remove confusion',
-                  'Increase control',
+                  'Make things easier',
                   'Create momentum'
-                ].map((item, index) => (
+                ].map((item) => (
                   <div
                     key={item}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black/20 border border-white/5"

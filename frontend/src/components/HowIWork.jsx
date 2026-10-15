@@ -12,12 +12,12 @@ const HowIWork = () => {
     {
       icon: Settings,
       title: 'Real-world solutions',
-      description: 'Focus on solving actual problems and building useful systems — not theory for its own sake.',
+      description: 'Focus on solving actual problems and building useful things — not theory for its own sake.',
     },
     {
       icon: TrendingUp,
       title: 'Independent thinking',
-      description: 'I build independently, learn by doing, and care about systems that are trustworthy and resilient.',
+      description: 'I build independently, learn by doing, and care about work that is trustworthy and resilient.',
     },
   ];
 
@@ -25,7 +25,7 @@ const HowIWork = () => {
     <section 
       id="approach" 
       className="py-24 md:py-32"
-      data-testid="how-i-work-section"
+      data-testid="approach-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -34,18 +34,18 @@ const HowIWork = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
+          className="max-w-3xl mb-16"
         >
-          <div>
-            <span className="text-xs tracking-[0.2em] uppercase font-mono text-orange-500/80 block mb-3">
-              Trust
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white">
-              What you can expect
-            </h2>
-          </div>
-          <p className="text-neutral-400 max-w-md md:text-right">
-            A simple approach focused on clarity, usefulness, and real outcomes.
+          <span className="text-xs tracking-[0.2em] uppercase font-mono text-orange-500/80 block mb-3">
+            About
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-6">
+            A practical approach
+          </h2>
+          <p className="text-neutral-400 text-lg leading-relaxed">
+            I like making things work better—whether that's a website, an organised digital 
+            workspace or an everyday technology problem. I explain things in plain English, 
+            agree the work before starting and give honest advice about what's worth doing.
           </p>
         </motion.div>
 
