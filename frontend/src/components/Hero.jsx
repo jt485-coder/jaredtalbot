@@ -28,13 +28,28 @@ const Hero = () => {
                 </span>
               </div>
 
-              {/* Headline */}
-              <h1 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.04em] leading-[0.95] text-white mb-6"
-                data-testid="hero-headline"
-              >
-                Hi, I'm <span className="text-neutral-400">Jared.</span>
-              </h1>
+              {/* Intro: portrait beside headline (stacks above on mobile) */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 mb-6">
+                <div className="shrink-0 relative">
+                  <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-2xl scale-90 pointer-events-none" aria-hidden="true" />
+                  <img
+                    src={`${process.env.PUBLIC_URL}/jared-portrait.png`}
+                    alt="Jared Talbot"
+                    width="140"
+                    height="150"
+                    className="relative w-[120px] md:w-[140px] h-auto drop-shadow-[0_8px_24px_rgba(234,88,12,0.25)]"
+                    data-testid="hero-portrait"
+                  />
+                </div>
+
+                {/* Headline */}
+                <h1 
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.04em] leading-[0.95] text-white"
+                  data-testid="hero-headline"
+                >
+                  Hi, I'm <span className="text-neutral-400">Jared.</span>
+                </h1>
+              </div>
 
               {/* Subheadline */}
               <p 
