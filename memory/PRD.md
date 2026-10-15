@@ -28,7 +28,7 @@ Rebuild jaredtalbot.com as a polished React-based landing page, replacing the cu
 ### Components Built
 1. **Navigation** - Sticky header with glass effect, mobile hamburger menu
 2. **Hero** - Bold headline, CTAs, trust pills, side panel with principles
-3. **RouteCards** - Bento grid layout with primary/secondary/tertiary cards
+3. **RouteCards** ("Selected work") - Full-width featured Puppet Pathways card (browser-framed screenshot + text) with a compact JaredFixes service card below. Bitcoin/Simple Systems/generic cards removed.
 4. **HowIWork** - Three principle cards (communication, solutions, thinking)
 5. **ContactSection** - Protected form with honeypot, no exposed emails
 6. **Footer** - Minimal with copyright and tagline
@@ -44,8 +44,13 @@ Rebuild jaredtalbot.com as a polished React-based landing page, replacing the cu
 - Hover animations and micro-interactions
 
 ### External Links
-- Jared Fixes: https://jaredfixes.com
-- GrowYourBTC: https://growyourbtc.com
+- Jared Fixes: https://www.jaredfixes.com
+- Puppet Pathways (featured work): https://puppetpathways.com/
+
+## Update (June 2026) - Featured Work + Content
+- All Bitcoin/BTC/GrowYourBTC references removed (verified; secondary/tertiary persona note is historical only).
+- "Selected work" section: Puppet Pathways is the featured website project with a real, optimised desktop homepage screenshot (`public/puppet-pathways-hero.webp`, ~57KB) in an understated browser frame. Compact JaredFixes service card beneath.
+- Portrait request: The orange-hoodie PNG attachment was NOT available in the environment; portrait intentionally left out (no placeholder) pending user upload.
 
 ## Prioritized Backlog
 

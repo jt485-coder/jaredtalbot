@@ -1,54 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Wrench, Globe, Cpu, ExternalLink } from 'lucide-react';
+import { Wrench, ExternalLink } from 'lucide-react';
 
 const RouteCards = () => {
-  const projects = [
-    {
-      id: 'jared-fixes',
-      badge: 'Main Project',
-      title: 'JaredFixes',
-      description: 'Simple websites for local businesses and patient tech help at home. Based in Oylegate, Co. Wexford, plus remote help.',
-      features: [
-        'Fast, good-looking websites for small businesses',
-        'Get found on Google: business profiles, search tools and analytics',
-        'Device setup, security basics and simple AI help'
-      ],
-      url: 'https://www.jaredfixes.com',
-      ctaText: 'Visit JaredFixes',
-      icon: Wrench,
-      isPrimary: true,
-    },
-    {
-      id: 'websites-digital-projects',
-      badge: 'What I Do',
-      title: 'Websites & Digital Projects',
-      description: 'Clear, useful websites and practical improvements to the tools people use every day.',
-      features: [
-        'Website planning, content and improvements',
-        'Organising files and digital workflows',
-        'Practical tools that make everyday tasks easier'
-      ],
-      url: null,
-      icon: Globe,
-      isPrimary: false,
-    },
-    {
-      id: 'simple-systems',
-      badge: 'Personal projects',
-      title: 'Simple Systems',
-      description: 'Exploring practical ways to organise information, simplify everyday tasks and make useful technology easier to work with.',
-      features: null,
-      url: null,
-      icon: Cpu,
-      isPrimary: false,
-      isSmall: true,
-    },
-  ];
-
   return (
-    <section 
-      id="work" 
+    <section
+      id="work"
       className="py-24 md:py-32"
       data-testid="work-section"
     >
@@ -66,7 +23,7 @@ const RouteCards = () => {
               My Work
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white">
-              What I'm working on
+              Selected work
             </h2>
           </div>
           <p className="text-neutral-400 max-w-md md:text-right">
@@ -74,125 +31,138 @@ const RouteCards = () => {
           </p>
         </motion.div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Primary Card - JaredFixes (Large) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-8 md:row-span-2"
-          >
-            <ProjectCard project={projects[0]} />
-          </motion.div>
+        {/* Featured Project - Puppet Pathways */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-6"
+        >
+          <FeaturedProject />
+        </motion.div>
 
-          {/* Secondary Card - Websites & Digital Projects */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-4"
-          >
-            <ProjectCard project={projects[1]} />
-          </motion.div>
-
-          {/* Tertiary Card - Simple Systems */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-4"
-          >
-            <ProjectCard project={projects[2]} />
-          </motion.div>
-        </div>
+        {/* Compact Service Card - JaredFixes */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <ServiceCard />
+        </motion.div>
       </div>
     </section>
   );
 };
 
-const ProjectCard = ({ project }) => {
-  const Icon = project.icon;
-  
+const FeaturedProject = () => {
   return (
     <div
-      className={`group relative h-full bg-white/[0.03] backdrop-blur-xl border rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 ${
-        project.isPrimary 
-          ? 'border-orange-500/30 hover:border-orange-500/50 hover:shadow-[0_8px_40px_rgba(234,88,12,0.15)]' 
-          : 'border-white/10 hover:border-white/20 hover:bg-white/[0.05]'
-      }`}
-      data-testid={`project-card-${project.id}`}
+      className="group relative bg-white/[0.03] backdrop-blur-xl border border-orange-500/30 rounded-2xl p-6 md:p-8 lg:p-10 transition-all duration-300 hover:border-orange-500/50 hover:shadow-[0_8px_40px_rgba(234,88,12,0.15)]"
+      data-testid="project-card-puppet-pathways"
     >
-      {/* Primary glow effect */}
-      {project.isPrimary && (
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
-      )}
+      {/* Soft glow */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
 
-      <div className="relative z-10">
-        {/* Badge */}
-        <div className="flex items-center justify-between mb-6">
-          <span 
-            className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase ${
-              project.isPrimary 
-                ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' 
-                : 'bg-white/5 text-neutral-400 border border-white/10'
-            }`}
-          >
-            {project.badge}
-          </span>
-          <Icon 
-            size={project.isPrimary ? 28 : 22} 
-            className={project.isPrimary ? 'text-orange-400' : 'text-neutral-500'} 
-            strokeWidth={1.5} 
-          />
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Screenshot in understated browser frame */}
+        <div className="order-1 lg:order-none">
+          <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0c0c0c] shadow-[0_18px_60px_rgba(0,0,0,0.5)]">
+            {/* Browser chrome */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.04] border-b border-white/10">
+              <span className="w-3 h-3 rounded-full bg-neutral-600" />
+              <span className="w-3 h-3 rounded-full bg-neutral-600" />
+              <span className="w-3 h-3 rounded-full bg-neutral-600" />
+              <div className="ml-3 flex-1 h-6 rounded-md bg-white/[0.04] border border-white/10 flex items-center px-3">
+                <span className="text-[11px] text-neutral-500 font-mono truncate">
+                  puppetpathways.com
+                </span>
+              </div>
+            </div>
+            <img
+              src={`${process.env.PUBLIC_URL}/puppet-pathways-hero.webp`}
+              alt="Puppet Pathways homepage"
+              width="1200"
+              height="675"
+              loading="lazy"
+              className="block w-full h-auto"
+              data-testid="puppet-pathways-screenshot"
+            />
+          </div>
         </div>
 
-        {/* Title */}
-        <h3 
-          className={`font-medium tracking-tight text-white mb-3 ${
-            project.isPrimary ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'
-          }`}
-        >
-          {project.title}
-        </h3>
+        {/* Text content */}
+        <div>
+          <div className="flex items-center gap-3 mb-5">
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-orange-500/20 text-orange-300 border border-orange-500/30">
+              Featured website project
+            </span>
+          </div>
 
-        {/* Description */}
-        <p className="text-neutral-400 leading-relaxed mb-6">
-          {project.description}
-        </p>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-white mb-4">
+            Puppet Pathways
+          </h3>
 
-        {/* Features */}
-        {project.features && (
-          <ul className="space-y-3 mb-8">
-            {project.features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-3 text-neutral-300">
-                <div className={`w-1.5 h-1.5 rounded-full mt-2 ${project.isPrimary ? 'bg-orange-500' : 'bg-neutral-500'}`} />
-                <span className="text-sm md:text-base">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+          <p className="text-neutral-400 leading-relaxed mb-5 text-base md:text-lg">
+            A colourful, welcoming website for an educational puppetry business, bringing its
+            school programme, puppet characters and event information together with clear ways
+            to enquire.
+          </p>
 
-        {/* CTA - only shown when URL exists */}
-        {project.url && (
+          <p className="text-neutral-300 leading-relaxed mb-8 text-sm md:text-base">
+            <span className="text-neutral-500">Contribution — </span>
+            Design, build, content, enquiry form and deployment.
+          </p>
+
           <a
-            href={project.url}
+            href="https://puppetpathways.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-              project.isPrimary
-                ? 'bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-[0_10px_30px_rgba(234,88,12,0.2)] hover:shadow-[0_14px_40px_rgba(234,88,12,0.3)]'
-                : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'
-            }`}
-            data-testid={`project-cta-${project.id}`}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-[0_10px_30px_rgba(234,88,12,0.2)] hover:shadow-[0_14px_40px_rgba(234,88,12,0.3)] hover:-translate-y-0.5 transition-all duration-300"
+            data-testid="project-cta-puppet-pathways"
           >
-            {project.ctaText}
+            Visit Puppet Pathways
             <ExternalLink size={16} strokeWidth={2} />
           </a>
-        )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ServiceCard = () => {
+  return (
+    <div
+      className="group bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+      data-testid="project-card-jared-fixes"
+    >
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-orange-500/30 transition-colors duration-300">
+            <Wrench size={22} className="text-neutral-400 group-hover:text-orange-400 transition-colors duration-300" strokeWidth={1.5} />
+          </div>
+          <div>
+            <h3 className="text-xl md:text-2xl font-medium tracking-tight text-white mb-2">
+              Need a website or tech help?
+            </h3>
+            <p className="text-neutral-400 leading-relaxed max-w-2xl">
+              Through JaredFixes, I build and look after websites for local businesses and offer
+              patient everyday tech help. Based in Oylegate, Co. Wexford, plus remote help.
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="https://www.jaredfixes.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+          data-testid="project-cta-jared-fixes"
+        >
+          Visit JaredFixes
+          <ExternalLink size={16} strokeWidth={2} />
+        </a>
       </div>
     </div>
   );
